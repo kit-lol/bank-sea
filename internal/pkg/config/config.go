@@ -33,7 +33,7 @@ type Database struct {
 
 // MustLoad reads the YAML file and fills in the Config structure
 func MustLoad() *Config {
-	configPath := "comfigs/local.yaml"
+	configPath := "configs/local.yaml"
 
 	if _, err := os.Stat(configPath); os.IsNotExist(err) {
 		log.Fatalf("The configuration file was not found on the path: %s", configPath)
