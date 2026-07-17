@@ -12,7 +12,7 @@ import (
 type Config struct {
 	Env        string     `yaml:"env" env-default:"local"`
 	HttpServer HTTPServer `yaml:"http_server"`
-	DB         Database   `yaml:db`
+	DB         Database   `yaml:"db"`
 }
 
 // HTTPServer describes the web server settings
@@ -42,7 +42,7 @@ func MustLoad() *Config {
 	var cfg Config
 
 	if err := cleanenv.ReadConfig(configPath, &cfg); err != nil {
-		log.Fatalf("Error when reading the configuration file: &", err)
+		log.Fatalf("Error when reading the configuration file: %s", err)
 	}
 
 	return &cfg
